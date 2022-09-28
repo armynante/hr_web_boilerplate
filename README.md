@@ -1,6 +1,9 @@
 
-## Humid Research Boilerplate Web App
+## Humid Research Web App Boilerplate
 
+- next auth
+- prisma 
+- postgres
 
 
 ### Docker References
