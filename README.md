@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Humid Research Web App Boilerplate
+
+- https://github.com/sequelize/sequelize-typescript
 
 ## Getting Started
 
