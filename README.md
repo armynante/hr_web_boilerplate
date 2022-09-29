@@ -1,24 +1,27 @@
 
-## Humid Research Web App Boilerplate
+# Humid Research Web App Boilerplate
 
-- all serverside
-- next auth
-- prisma 
-- postgres
+- All serverside
+- Next auth
+- Prisma ORM
+- Postgres
+- Docker image
 
 
-### Docker References
+## Helpful Links
+
+#### Docker References
 - https://github.com/johnnymetz/docker-nextjs
 - https://www.youtube.com/watch?v=gAkwW2tuIqE
 - https://www.youtube.com/watch?v=3c-iBn73dDE
 
-### Digital Ocean Deployment
+#### Digital Ocean Deployment
 - https://docs.digitalocean.com/products/container-registry/quickstart/
 
-### Getting Started
 
-***Note:*** *This project is built using Docker and Docker Compose. If you do not have Docker installed, please follow the instructions [here](https://docs.docker.com/get-docker/).*
-  
+## Getting Started
+
+
 #### Environment Variables (`.env`)
 
 ```sh
@@ -60,8 +63,8 @@ EMAIL_FROM=noreply@example.com
 ## Google Auth Setup
 
 - OAuth Setup
-- - https://blog.logrocket.com/
-nextauth-js-for-next-js-client-side-authentication/
+  - https://blog.logrocket.com/
+  - nextauth-js-for-next-js-client-side-authentication/
 
 ```sh
 GOOGLE_CLIENT_ID=client_id
@@ -71,7 +74,7 @@ GOOGLE_CLIENT_SECRET=client_secret
 ### Prisma Setup
 
 - Global State
-- - https://www.prisma.io/docs/guides/database/troubleshooting-orm/help-articles/nextjs-prisma-client-dev-practices
+  - https://www.prisma.io/docs/guides/database/troubleshooting-orm/help-articles/nextjs-prisma-client-dev-practices
 
 - Middleware
-- - https://next-auth.js.org/tutorials/securing-pages-and-api-routes#nextjs-middleware
+  - https://next-auth.js.org/tutorials/securing-pages-and-api-routes#nextjs-middleware
