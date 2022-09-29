@@ -1,10 +1,11 @@
 import type { NextPage } from 'next';
+import Sidebar from '../components/layouts/sidebar/Sidebar';
 
 const Protected: NextPage = () => {
   return (
-    <div>
-      <h1>NOT PROTECTED</h1>
-    </div>
+    <Sidebar>
+      <h1>PROTECTED</h1>
+    </Sidebar>
   );
 };
 
