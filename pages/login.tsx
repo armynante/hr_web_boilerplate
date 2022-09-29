@@ -1,31 +1,12 @@
-import { GetServerSideProps } from 'next';
-import type { Session } from 'next-auth';
-import { getSession, signIn, signOut } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
-export const getServerSideProps: GetServerSideProps<{session: Session | null}> = async ( context ) => {
-  const session = await getSession( context );
-  if ( !session ) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
 
-  return {
-    props: {
-      session,
-    },
-  };
-};
-
-export default function Login( { session }: { session: Session } ) {
-
+export default function Login( ) {  
+  const { data: session, status } = useSession();
   if ( session ) {
     return (
       <>
-        Signed in as {session?.user?.email} <br />
+        Signed in as {session.user?.email} <br />
         <button onClick={() => signOut()}>Sign out</button>
       </>
     );
