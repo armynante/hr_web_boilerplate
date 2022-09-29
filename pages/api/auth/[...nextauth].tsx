@@ -4,6 +4,7 @@ import GoogleProvider from 'next-auth/providers/google';
 import { prisma } from '../../../lib/db';
 import EmailProvider from 'next-auth/providers/email';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import CredentialsProvider from 'next-auth/providers/credentials';
 
 
 export const authOptions: NextAuthOptions = {
@@ -17,7 +18,7 @@ export const authOptions: NextAuthOptions = {
     EmailProvider( {
       server: {
         host: process.env.EMAIL_SERVER_HOST,
-        port: process.env.EMAIL_SERVER_PORT,
+        port: Number( process.env.EMAIL_SERVER_PORT ),
         auth: {
           user: process.env.EMAIL_SERVER_USER,
           pass: process.env.EMAIL_SERVER_PASSWORD
@@ -25,6 +26,28 @@ export const authOptions: NextAuthOptions = {
       },
       from: process.env.EMAIL_FROM
     } ),
+    CredentialsProvider( {
+      name: 'Credentials',
+      credentials: {
+        email: {
+          label: 'Email',
+          type: 'email',
+          placeholder: 'meine.email@domain.com',
+        },
+        password: { label: 'Passwort', type: 'password' },
+      },
+      authorize: async ( credentials ) => {
+        const user = prisma.user.findUnique( {
+          where: {
+            email: credentials?.email,
+          },
+        } );
+        if ( user ) {
+          return user;
+        } else {
+          return null;
+        }
+      } } )
   ],
   callbacks: {
     session( { session, token, user } ) {
